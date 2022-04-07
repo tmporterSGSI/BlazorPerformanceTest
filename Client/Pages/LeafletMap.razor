@@ -1,0 +1,13 @@
+﻿@page "/map"
+@inject IJSRuntime JSRuntime
+
+<h3>LeafletMap</h3>
+
+<div id="map"></div>
+
+@code {
+  protected override async Task OnAfterRenderAsync(bool firstRender)
+  {
+    var module = await JSRuntime.InvokeAsync<IJSObjectReference>("import", "./Pages/LeafletMap.razor.js");
+  }
+}
